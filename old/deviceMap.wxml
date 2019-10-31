@@ -1,0 +1,26 @@
+<view class="map_container">
+  <map class="map" id="map" 
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
+    scale="18" 
+    show-location="true" 
+    markers="{{markers}}" 
+    bindmarkertap="makertap" 
+    bindtap='onclickMap'
+    polyline="{{polyline}}" >
+  </map>
+</view>
+<view class="map_text {{showInfo?'show':'hide'}}">
+  <text class="h1">{{textData.name}}</text>
+  <text>mac:{{textData.mac}}</text>
+  <text>imei:{{textData.imei}}</text>
+  <!-- 出行方式 -->
+  <view class="gotoView">
+    <view class="gotobyDriver" bindtap="gotobyDriver">驾车</view>
+    <view class="gotobywalk" bindtap="gotobywalk" >步行</view>
+  </view>
+  <view wx:for="{{detailSteps}}" class="allStepsView" >
+    <!-- 遍历具体路径信息 -->
+    <text>{{item.instruction}}</text>
+  </view>
+</view>
